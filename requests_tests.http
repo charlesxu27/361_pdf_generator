@@ -1,0 +1,11 @@
+### Request 1: test pdfkit
+POST http://localhost:42555/getpdf HTTP/1.1
+content-type: application/json
+
+{
+    "userName": "Molly Doe",
+    "hiringManagerName": "Rick Smith",
+    "userAddress":"1701 SW Western Blvd, Corvallis, OR, 97331",
+    "companyAddress": "1500 SW Jeffeson St, Corvallis, OR, 97331",
+    "letterContent": "I am writing to express my interest in the IT job at Oregon State University. As a highly motivated and detail-oriented individual, I am confident that I have the skills and experience needed to excel in this role. With a strong background in computer science and a passion for technology, I am eager to contribute to the university's mission and support its students and faculty. I am particularly impressed with Oregon State University's commitment to using technology to enhance education and drive innovation. I am eager to join this dynamic and forward-thinking community and help support the university's IT needs. Thank you for considering my application. I look forward to the opportunity to further discuss my qualifications and how I can be of value to your team."
+}
