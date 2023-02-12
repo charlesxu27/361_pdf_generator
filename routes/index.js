@@ -9,7 +9,10 @@ router.get('/pdf', async (req, res) => {
 
     doc.pipe(res)
 
-    let date = new Date()
+    let date = new Date();
+    let options = { month: 'long', day: 'numeric', year: 'numeric' };
+    let formattedDate = date.toLocaleDateString('en-US', options);
+
     let username = req.body.userName
     let user_address = req.body.userAddress
     let hiring_manager = req.body.hiringManagerName
@@ -17,7 +20,8 @@ router.get('/pdf', async (req, res) => {
     let letter_content = req.body.letterContent
 
     doc.fontSize(12);
-    doc.text(date, { align: 'left' });
+    doc.text(formattedDate, { align: 'left' });
+    doc.moveDown();
     doc.text(username, { align: 'left' });
     doc.text(user_address, { align: 'left' });
     doc.moveDown();
@@ -25,12 +29,17 @@ router.get('/pdf', async (req, res) => {
     doc.text(company_address, { align: 'left' });
     doc.moveDown();
     doc.text(letter_content, { align: 'left' });
+    doc.moveDown();
+    doc.text("Sincerely,", { align: 'left'});
+    doc.moveDown
+    doc.text(username, {align: 'left'});
 
     // Finalize PDF file
     doc.end();
 
     res.writeHead(200, {
         'Content-Type': 'application/pdf',
+        'Content-Disposition': `attachment;filename=coverletter.pdf`,
       });
 });
 
