@@ -5,7 +5,7 @@ const router = express.Router()
 
 router.get('/pdf', async (req, res) => {
 
-    const doc = new PDFDocument({ font: 'Helvetica' });
+    const doc = new PDFDocument({ font: 'Helvetica', compress: false });
 
     doc.pipe(res)
 
@@ -45,3 +45,6 @@ router.get('/pdf', async (req, res) => {
 
 
 module.exports = router;
+
+// Note: https://github.com/devongovett/blob-stream/issues/5
+// Blogstream does not work in node, so we use this workaround.
