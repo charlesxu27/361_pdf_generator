@@ -20,3 +20,6 @@ content-type: application/json
 
 ## Receiving Data
 - The requesting service will receive a pdf download in the body.
+
+## UML Sequence Diagram
+
