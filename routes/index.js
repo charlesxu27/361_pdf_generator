@@ -31,7 +31,7 @@ router.get('/pdf', async (req, res) => {
     doc.text(letter_content, { align: 'left' });
     doc.moveDown();
     doc.text("Sincerely,", { align: 'left'});
-    doc.moveDown
+    doc.moveDown(); 
     doc.text(username, {align: 'left'});
 
     // Finalize PDF file
@@ -47,4 +47,4 @@ router.get('/pdf', async (req, res) => {
 module.exports = router;
 
 // Note: https://github.com/devongovett/blob-stream/issues/5
-// Blogstream does not work in node, so we use this workaround.
+// Blobstream does not work in node, so we use this workaround.
