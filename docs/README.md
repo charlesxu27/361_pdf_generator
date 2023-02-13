@@ -22,4 +22,4 @@ content-type: application/json
 - The requesting service will receive a pdf download in the body.
 
 ## UML Sequence Diagram
-
+![](./A8_UML_Diagram.jpeg)
