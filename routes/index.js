@@ -1,5 +1,6 @@
 const express = require("express");
 const PDFDocument = require("pdfkit");
+const axios = require('axios');
 
 const router = express.Router();
 
@@ -8,15 +9,15 @@ const API_ENDPOINT = process.env.MY_API_ENDPOINT;
 
 async function getCoverLetter(chatPrompt) {
   const response = await axios.post(
-    API_ENDPOINT,
+    "https://api.openai.com/v1/chat/completions",
     {
-      prompt: chatPrompt,
-      stop: "\n",
+      model: "gpt-3.5-turbo",
+      messages: [{"role": "user", "content": chatPrompt}]
     },
     {
       headers: {
         Authorization: `Bearer ${API_KEY}`,
-        "Content-Type": "applicaiton/json",
+        'Content-Type': 'application/json',
       },
     }
   );
