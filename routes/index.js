@@ -3,7 +3,7 @@ const PDFDocument = require('pdfkit');
 
 const router = express.Router()
 
-router.get('/pdf', async (req, res) => {
+router.post('/pdf', async (req, res) => {
 
     const doc = new PDFDocument({ font: 'Helvetica', compress: false });
 
